@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const auth = require('../middleware/auth');
+const auth = require('../middleware/auth.js');
 
-const stuffCtrl = require('../controllers/ControleurAnnonce.js');
+const stuffCtrl = require('../controller/ControleurAnnonces.js');
 
-router.get('user/annonce', auth, stuffCtrl.getAllStuff);
-router.post('/annonce', auth, stuffCtrl.createThing);
-router.get('/annonce/:id', auth, stuffCtrl.getOneThing);
-router.put('/annonce/:id', auth, stuffCtrl.modifyThing);
-router.delete('/annonce/:id', auth, stuffCtrl.deleteThing);
+// router.get('/', auth.Auth, stuffCtrl.getAllStuff);
+// router.post('/', auth.Auth, stuffCtrl.createThing);
+// router.get('/:id', auth.Auth, stuffCtrl.getOneThing);
+// router.put('/:id', auth.Auth, stuffCtrl.modifyThing);
+// router.delete('/:id', auth.Auth, stuffCtrl.deleteThing);
 
 module.exports = router;

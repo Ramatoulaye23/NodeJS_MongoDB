@@ -2,7 +2,7 @@ let User = require("../model/ModelUser.js")// pareil que Import user from "../mo
 // let User = require("../model/ModelAnnonce.js")
 let bcrypt = require("bcrypt");// pareil que Import bcrypt from "bcrypt"
 let jwt = require("jsonwebtoken");//pareil que Import jwt from 
-
+let Annonce = require('../model/ModelAnnonce.js')
 
 exports.signup = async (req, res) => {
     try {
@@ -12,6 +12,7 @@ exports.signup = async (req, res) => {
         res.status(400).json({ message: "Erreur pendant inscription" });
     }
 }
+  
 exports.login = async (req, res) => {
     try {
         let user = await User.findOne({ email: req.body.email }); 
@@ -46,10 +47,11 @@ exports.isLoggedIn = (req, res, next) => {
         next();
     });
 };
+
 exports.annonce = async (req, res) => {
     try {
-        let u = await User.create(req.body);
-        res.status(200).json({message: "User créé"});
+        let u = await Annonce.create(req.body);
+        res.status(200).json({message: "annonce créé"});
     } catch (err) {
         res.status(400).json({ message: "Erreur pendant inscription" });
     }
